@@ -2,6 +2,7 @@ package com.example.e_recorder;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
@@ -39,25 +40,6 @@ public class MainActivity extends AppCompatActivity {
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
 
-        askruntimePermission();
-
-    }
-
-    private void askruntimePermission() {
-        Dexter.withContext(this).withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO)
-                .withListener(new MultiplePermissionsListener() {
-                    @Override
-                    public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
-                        Toast.makeText(MainActivity.this, "Granted", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
-
-                        permissionToken.continuePermissionRequest();
-                    }
-                }).check();
     }
 
     private void setupViewPager(ViewPager viewPager){
@@ -66,4 +48,6 @@ public class MainActivity extends AppCompatActivity {
         viewPagerAdapter.addFragment(new ListFragment(), "Recordings");
         viewPager.setAdapter(viewPagerAdapter);
     }
+
+
 }

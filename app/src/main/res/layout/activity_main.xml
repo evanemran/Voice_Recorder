@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -13,7 +14,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:background="@color/black"
+            android:background="@android:color/black"
             app:title="@string/app_name"
             app:titleTextColor="@color/red"
             app:layout_scrollFlags="scroll|enterAlways"
@@ -24,7 +25,7 @@
             android:id="@+id/tabLayout"
             app:tabIndicatorColor="@color/red"
             app:tabIndicatorHeight="2dp"
-            android:background="@color/black"
+            android:background="@android:color/black"
             app:tabGravity="fill"
             app:tabTextColor="@color/red"
             app:tabMode="fixed"
